@@ -9,6 +9,18 @@
     align-items: center; 
     padding-top: 150px;
     background-color: var(--bg-dark);
+    animation: fadeUp 0.8s ease forwards;
+}
+
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 /* =========================
@@ -93,11 +105,12 @@
 
 .project-title {
     font-family: 'Bebas Neue', sans-serif;
-    font-size: 4rem;
+    font-size: clamp(3rem, 8vw, 4.5rem); 
     letter-spacing: 1px;
     text-transform: uppercase;
     color: var(--text-white);
     margin-bottom: 10px;
+    line-height: 1.1;
 }
 
 .title-line {
@@ -136,6 +149,11 @@
     opacity: 0.8;
 }
 
+/* Aqui garantimos que as caixas de info técnica sejam uniformes */
+.info-item {
+    width: 100%;
+}
+
 .info-description p {
     font-size: 1.05rem;
     line-height: 1.8;
@@ -151,13 +169,17 @@
     border-bottom: 1px solid var(--accent);
     padding-bottom: 5px;
     align-self: flex-start; 
-    transition: opacity 0.3s;
+    transition: all 0.3s ease;
+    font-weight: 700;
 }
 
-.view-site-link:hover { opacity: 0.6; }
+.view-site-link:hover { 
+    opacity: 0.6;
+    border-bottom-color: var(--text-white);
+}
 
 /* =========================
-   3. GALERIA VERTICAL (PRINTS COMPRIMIDOS)
+   3. GALERIA VERTICAL (PRINTS AUMENTADOS)
 ========================= */
 
 .project-gallery {
@@ -165,7 +187,7 @@
     max-width: 1100px;
     display: flex; 
     flex-direction: column;
-    gap: 50px; /* Reduzi o espaço entre imagens para acompanhar o tamanho menor */
+    gap: 100px; /* Aumentado para dar respiro entre prints grandes */
     padding: 0 40px 120px 40px;
     align-items: center; 
 }
@@ -182,43 +204,79 @@
     font-family: 'Bebas Neue', sans-serif;
     font-size: 0.9rem;
     letter-spacing: 3px;
-    margin-bottom: 15px;
+    margin-bottom: 25px;
     opacity: 0.5;
     text-transform: uppercase;
 }
 
 .gallery-img {
-    /* TAMANHO REDUZIDO AQUI */
+    /* ALTERADO: Agora os teus prints têm destaque total */
     width: 100%;
-    max-width: 300px; 
+    max-width: 1000px; 
     height: auto;
-    border-radius: 8px;
+    border-radius: 12px;
     border: 1px solid rgba(255, 255, 255, 0.1);
-    box-shadow: 0 8px 25px rgba(0,0,0,0.3);
-    transition: transform 0.3s ease;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.4);
+    transition: transform 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 
 .gallery-img:hover {
-    transform: translateY(-5px);
+    transform: scale(1.02);
 }
 
 /* =========================
-   4. RESPONSIVIDADE
+   4. RESPONSIVIDADE (TOTALMENTE UNIFICADA)
 ========================= */
 
 @media (max-width: 900px) {
+    .project-detail-container {
+        padding-top: 120px;
+    }
+
     .project-gallery {
-        gap: 40px;
+        gap: 60px;
+        padding-bottom: 80px;
     }
     
-    .project-title { font-size: 3rem; }
+    .project-title { 
+        font-size: 3rem; 
+        text-align: center;
+    }
+
+    .title-line {
+        margin: 20px auto 40px;
+    }
     
     .info-grid {
         grid-template-columns: 1fr;
-        gap: 40px;
+        gap: 50px;
+        text-align: center;
+    }
+
+    .info-column {
+        align-items: center;
+    }
+
+    .view-site-link {
+        align-self: center;
     }
 
     .gallery-img {
-        max-width: 90%; /* Mantém uma margem lateral em mobile */
+        max-width: 100%;
+        border-radius: 8px;
+    }
+}
+
+@media (max-width: 600px) {
+    .project-banner {
+        margin-bottom: 40px;
+    }
+
+    .banner-card img {
+        max-width: 250px;
+    }
+
+    .project-title {
+        font-size: 2.5rem;
     }
 }
