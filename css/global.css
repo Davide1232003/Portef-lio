@@ -1,0 +1,115 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;700&display=swap');
+
+/* =========================
+   Variáveis Globais
+========================= */
+:root {
+    --bg-dark: #36353b;
+    --accent: #C2CABB;
+    --text-white: #FFFFFF;
+}
+
+/* =========================
+   Reset Básico
+========================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* =========================
+   Base do Site
+========================= */
+body {
+    background-color: var(--bg-dark);
+    color: var(--text-white);
+    font-family: 'Inter', sans-serif;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+/* =========================
+   Header Global
+========================= */
+.main-header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    padding: 30px 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgba(54, 53, 59, 0.95);
+    backdrop-filter: blur(6px);
+    z-index: 100;
+}
+
+/* Logo */
+.my-logo {
+    height: 60px;
+    opacity: 0.8;
+    transition: opacity 0.3s ease;
+}
+
+.my-logo:hover {
+    opacity: 1;
+}
+
+/* =========================
+   Navegação
+========================= */
+.nav-links {
+    display: flex;
+    gap: 30px;
+    align-items: center;
+}
+
+.nav-links a {
+    color: var(--text-white);
+    text-decoration: none;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover,
+.nav-links a.active-link {
+    color: var(--accent);
+}
+
+/* =========================
+   Botões Globais
+========================= */
+.button-outline {
+    display: inline-block;
+    border: 1px solid var(--text-white);
+    padding: 15px 45px;
+    color: var(--text-white);
+    text-decoration: none;
+    font-weight: 700;
+    letter-spacing: 1px;
+    transition: all 0.4s ease;
+}
+
+.button-outline:hover {
+    background-color: var(--text-white);
+    color: var(--bg-dark);
+}
+
+/* =========================
+   Responsividade Global
+========================= */
+@media (max-width: 768px) {
+    .main-header {
+        padding: 20px 30px;
+    }
+
+    .nav-links {
+        gap: 15px;
+    }
+
+    .nav-links a {
+        font-size: 0.85rem;
+    }
+}

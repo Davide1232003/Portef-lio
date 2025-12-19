@@ -1,0 +1,149 @@
+/* =========================
+   LISTA DE PROJETOS - LAYOUT
+========================= */
+
+.projects-list-container {
+    padding: 150px 80px 100px 225px; /* Alinhamento consistente com o Sobre Mim */
+    max-width: 1400px;
+    background-color: var(--bg-dark);
+}
+
+.page-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 4rem;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+
+.title-line {
+    width: 1050px; /* Linha comprimida como nas outras secções */
+    height: 1px;
+    background-color: var(--text-white);
+    opacity: 0.3;
+    margin-bottom: 60px;
+}
+
+/* =========================
+   GRELHA DE PROJETOS (2 COLUNAS)
+========================= */
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Dois projetos lado a lado */
+    gap: 60px; /* Espaço entre as caixas */
+}
+
+/* O "Card" ou Caixa do Projeto */
+.project-card {
+    text-decoration: none;
+    color: var(--text-white);
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.4s ease;
+}
+
+/* Caixa onde fica o Logótipo */
+.card-image {
+    width: 100%;
+    aspect-ratio: 16 / 10; /* Proporção retangular elegante */
+    background-color: #FFFFFF; /* Fundo branco para contrastar com o logo */
+    border: 1px solid rgba(0, 0, 0, 0.05); /* Borda muito subtil */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    margin-bottom: 25px;
+    transition: all 0.4s ease;
+}
+
+.card-image img {
+    width: 50%; /* Logótipo contido e pequeno dentro da caixa */
+    height: auto;
+    object-fit: contain;
+    opacity: 0.7;
+    transition: all 0.5s ease;
+    filter: none; 
+
+}
+
+* Estilo específico apenas para caixas com a classe .full-image */
+.card-image.full-image {
+    padding: 0; /* Remove margens internas */
+}
+
+.card-image.full-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Faz a imagem preencher a caixa toda */
+    filter: grayscale(0%); /* Opcional: se quiseres que esta já tenha cor */
+    opacity: 1; /* Opcional: se quiseres que esta não tenha transparência */
+}
+
+/* Garante que o efeito de hover continua a funcionar bem */
+.project-card:hover .card-image.full-image img {
+    transform: scale(1.05);
+}
+
+/* Conteúdo de Texto abaixo da caixa */
+.card-content {
+    padding-left: 5px;
+}
+
+.card-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 2rem;
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    transition: color 0.3s ease;
+}
+
+.card-desc {
+    font-size: 0.95rem;
+    opacity: 0.6;
+    line-height: 1.5;
+    font-weight: 300;
+}
+
+/* =========================
+   EFEITOS DE INTERAÇÃO (HOVER)
+========================= */
+
+.project-card:hover {
+    transform: translateY(-10px); /* A caixa sobe ligeiramente */
+}
+
+.project-card:hover .card-image {
+    border-color: var(--accent); /* Borda ganha a cor de destaque */
+    background-color: #efede6f4;
+}
+
+.project-card:hover .card-image img {
+    transform: scale(1.1);
+    filter: grayscale(0%); /* Logo ganha cor no hover */
+    opacity: 1;
+}
+
+.project-card:hover .card-title {
+    color: var(--accent);
+}
+
+/* =========================
+   RESPONSIVIDADE
+========================= */
+
+@media (max-width: 1100px) {
+    .projects-list-container {
+        padding: 120px 40px;
+    }
+    
+    .projects-grid {
+        grid-template-columns: 1fr; /* Em tablets/telemóveis fica um por baixo do outro */
+        gap: 40px;
+    }
+
+    .card-title {
+        font-size: 1.8rem;
+    }
+}

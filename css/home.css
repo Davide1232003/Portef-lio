@@ -1,0 +1,71 @@
+/* =========================
+   HERO / HOMEPAGE
+========================= */
+
+.hero-centered {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 0 20px;
+}
+
+/* Conteúdo central */
+.hero-content {
+    max-width: 900px;
+    animation: fadeUp 0.8s ease forwards;
+}
+
+/* Animação suave de entrada */
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Título principal */
+.main-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 5.5rem;
+    line-height: 1.1;
+    margin-bottom: 25px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+/* Nome em destaque */
+.highlight-name {
+    color: var(--accent);
+    display: inline-block;
+}
+
+/* Descrição */
+.description {
+    font-size: 1.1rem;
+    max-width: 600px;
+    margin: 0 auto 45px;
+    line-height: 1.6;
+    opacity: 0.9;
+    font-weight: 300;
+}
+
+/* =========================
+   Responsividade
+========================= */
+
+@media (max-width: 768px) {
+    .main-title {
+        font-size: 3.5rem;
+    }
+
+    .description {
+        font-size: 1rem;
+    }
+}
+
