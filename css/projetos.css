@@ -85,6 +85,23 @@
     transform: scale(1.05);
 }
 
+/* Remove as bordas e o fundo branco para imagens que preenchem a caixa toda */
+.card-image.full-image {
+    padding: 0;
+    border: none; /* Remove a linha branca/cinza de 1px */
+    background-color: transparent; /* Remove o fundo branco de contraste */
+    box-shadow: none; /* Garante que não haja sombras a criar efeito de linha */
+}
+
+/* Garante que a imagem não tenha filtros que criem contornos */
+.card-image.full-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border: none;
+    outline: none;
+}
+
 /* Conteúdo de Texto abaixo da caixa */
 .card-content {
     padding-left: 5px;
@@ -146,4 +163,23 @@
     .card-title {
         font-size: 1.8rem;
     }
+}
+
+
+
+/* Remove as bordas e o fundo branco para imagens que preenchem a caixa toda */
+.card-image.full-image {
+    padding: 0;
+    border: none; /* Remove a linha branca/cinza de 1px */
+    background-color: transparent; /* Remove o fundo branco de contraste */
+    box-shadow: none; /* Garante que não haja sombras a criar efeito de linha */
+}
+
+/* Garante que a imagem não tenha filtros que criem contornos */
+.card-image.full-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border: none;
+    outline: none;
 }

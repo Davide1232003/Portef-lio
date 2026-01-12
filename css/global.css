@@ -47,7 +47,7 @@ body {
 
 /* Logo */
 .my-logo {
-    height: 60px;
+    height: 30px;
     opacity: 0.8;
     transition: opacity 0.3s ease;
 }

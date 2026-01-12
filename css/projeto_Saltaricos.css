@@ -149,7 +149,6 @@
     opacity: 0.8;
 }
 
-/* Aqui garantimos que as caixas de info técnica sejam uniformes */
 .info-item {
     width: 100%;
 }
@@ -179,17 +178,18 @@
 }
 
 /* =========================
-   3. GALERIA VERTICAL (PRINTS AUMENTADOS)
+   3. GALERIA (2 A 2 COM TÍTULOS INDIVIDUAIS)
 ========================= */
 
 .project-gallery {
     width: 100%;
     max-width: 1100px;
-    display: flex; 
-    flex-direction: column;
-    gap: 100px; /* Aumentado para dar respiro entre prints grandes */
+    display: grid;
+    /* Grelha de 2 colunas iguais */
+    grid-template-columns: 1fr 1fr; 
+    gap: 60px 40px; /* 60px vertical para dar espaço ao título, 40px horizontal */
     padding: 0 40px 120px 40px;
-    align-items: center; 
+    margin: 0 auto;
 }
 
 .gallery-item {
@@ -204,15 +204,15 @@
     font-family: 'Bebas Neue', sans-serif;
     font-size: 0.9rem;
     letter-spacing: 3px;
-    margin-bottom: 25px;
+    margin-bottom: 15px;
     opacity: 0.5;
     text-transform: uppercase;
+    color: var(--text-white);
 }
 
 .gallery-img {
-    /* ALTERADO: Agora os teus prints têm destaque total */
     width: 100%;
-    max-width: 1000px; 
+    max-width: 100%; 
     height: auto;
     border-radius: 12px;
     border: 1px solid rgba(255, 255, 255, 0.1);
@@ -221,7 +221,7 @@
 }
 
 .gallery-img:hover {
-    transform: scale(1.02);
+    transform: scale(1.03);
 }
 
 /* =========================
@@ -234,7 +234,9 @@
     }
 
     .project-gallery {
-        gap: 60px;
+        /* No mobile, as fotos voltam a 1 coluna */
+        grid-template-columns: 1fr; 
+        gap: 50px;
         padding-bottom: 80px;
     }
     
@@ -251,6 +253,13 @@
         grid-template-columns: 1fr;
         gap: 50px;
         text-align: center;
+    }
+
+    /* JUSTIFICAÇÃO DO TEXTO EM MOBILE */
+    .info-description p {
+        text-align: justify;
+        hyphens: auto;
+        margin-bottom: 40px;
     }
 
     .info-column {
